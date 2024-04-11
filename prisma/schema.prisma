@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Casa {
+  id           String   @id @default(uuid())
+  userId      String
+  ciudad       String  
+  precio       Float?
+  habitaciones Int?
+  imageUrl    String? 
+  color        String?
+  createAt     DateTime @default(now())
+  updateAt     DateTime @updatedAt
+}
