@@ -70,7 +70,7 @@ export function DataTable<TData, TValue>({
           <Link href={"/registra"}>
             <Button>
               <PlusCircle className="h-4 w-4 mr-2" />
-              New Course
+              New Home
             </Button>
           </Link>
           <Link href={"/"}>

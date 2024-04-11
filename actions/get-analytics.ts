@@ -1,4 +1,4 @@
-"use serve"
+"use server"
 import { db } from "@/utils/db";
 
 export const getAnalitics = async () => {

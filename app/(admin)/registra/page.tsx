@@ -59,10 +59,6 @@ const CreatePage = () => {
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-screen p-6">
       <div>
         <h1 className="text-2xl">Nombre de la Ciudad</h1>
-        <p className="text-sm text-slate-600">
-          What would you like to name your course? Dont worry, you can change
-          this later.
-        </p>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
