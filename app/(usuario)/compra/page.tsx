@@ -2,7 +2,6 @@
 import { Bogota, mostrarTodo, Rango, Verde, Villavicencio } from "@/actions/getResult";
 import Header from "@/components/Header";
 import { formatPrice } from "@/lib/format";
-import { db } from "@/utils/db";
 import { Casa } from "@prisma/client";
 import Image from "next/image";
 import React, { useState } from "react";

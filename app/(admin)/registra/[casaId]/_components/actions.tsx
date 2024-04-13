@@ -25,7 +25,8 @@ function Actions({ courseId }: ActionsProps) {
       await axios.delete(`/api/ciudad/${courseId}`);
       toast.success("Casa deleted");
       router.refresh();
-      router.push(`/teacher/courses`);
+      router.push(`/registra/courses`);
+      router.refresh()
     } catch {
       toast.error("Something went wrong");
     } finally {
