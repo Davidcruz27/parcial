@@ -3,6 +3,7 @@ import { columns } from "./_components/columns";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { db } from "@/utils/db";
+import { Casa } from "@prisma/client";
 
 const CoursesPage = async () => {
   const { userId } = auth();
@@ -11,14 +12,7 @@ const CoursesPage = async () => {
     return redirect("/");
   }
 
-  const courses = await db.casa.findMany({
-    where: {
-      userId,
-    },
-    orderBy: {
-      createAt: "desc",
-    },
-  });
+  const courses:Casa[]= await db.$queryRaw`SELECT * FROM CasaComentarioView`
 
   return (
     <div className="p-6">

@@ -24,14 +24,17 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { DoorClosed, PlusCircle } from "lucide-react";
+import { DoorClosed, PercentDiamondIcon, PlusCircle } from "lucide-react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDF from "@/components/Pdf";
+import { Casa } from "@prisma/client";
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends Casa, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends Casa, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -67,6 +70,31 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />{" "}
         <div className="flex gap-5">
+          <Button>
+            <PercentDiamondIcon className="h-4 w-4 mr-2" />
+            <PDFDownloadLink
+              document={
+                <PDF
+                  casaData={data.filter(
+                    (casa) =>
+                      casa.precio !== null &&
+                      casa.habitaciones !== null &&
+                      casa.imageUrl !== null
+                  )}
+                />
+              }
+              fileName="casa_data.pdf"
+            >
+              {({ loading }) =>
+                loading ? (
+                  <button>Loading...</button>
+                ) : (
+                  <button>Download</button>
+                )
+              }
+            </PDFDownloadLink>
+          </Button>
+
           <Link href={"/registra"}>
             <Button>
               <PlusCircle className="h-4 w-4 mr-2" />

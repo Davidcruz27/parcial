@@ -2,7 +2,12 @@
 
 import { Casa } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react";
+import {
+  ArrowUpDown,
+  MoreHorizontal,
+  Pencil,
+  PercentDiamondIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,6 +16,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import PDF from "@/components/Pdf";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export const columns: ColumnDef<Casa>[] = [
   {

@@ -1,5 +1,5 @@
 "use client";
-import { Bogota, mostrarTodo, Rango, Verde, Villavicencio } from "@/actions/getResult";
+import { Rango, } from "@/actions/getResult";
 import Header from "@/components/Header";
 import { formatPrice } from "@/lib/format";
 import { Casa } from "@prisma/client";
@@ -14,36 +14,14 @@ function CompraPage() {
       <Header />
       <div className="border"></div>
       <div className="border h-screen w-64 absolute flex flex-col font-semibold">
-        <button
-          className="mt-5 py-2 hover:bg-sky-200 "
-          onClick={async () => setResultado(await mostrarTodo())}
-        >
-          Mostrar Todos
-        </button>
-        <button
-          className="mt-5 py-2 hover:bg-sky-200 "
-          onClick={async () => setResultado(await Bogota())}
-        >
-          Bogota
-        </button>
-        <button
-          className="mt-5 py-2 hover:bg-sky-200 "
-          onClick={async () => setResultado(await Villavicencio())}
-        >
-          Villavicencio
-        </button>
+        
         <button
           className="mt-5 py-2 hover:bg-sky-200 "
           onClick={async () => setResultado(await Rango())}
         >
           Rango 
         </button>
-        <button
-          className="mt-5 py-2 hover:bg-sky-200 "
-          onClick={async () => setResultado(await Verde())}
-        >
-          Color Rojo y Azul 
-        </button>
+        
       </div>
       <div className=" pl-64">
         <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
